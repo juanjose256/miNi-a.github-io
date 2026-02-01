@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Ti, Mi Amor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #8b4566;
+            --secondary: #d4a5a5;
+            --accent: #ffd7ba;
+            --dark: #2a1a1f;
+            --light: #fff5f7;
+            --gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: linear-gradient(135deg, var(--light) 0%, #ffe8ec 50%, var(--accent) 100%);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.8;
+        }
+
+        /* Animated background hearts */
+        .hearts-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px;
+            color: rgba(212, 165, 165, 0.3);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 30px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(139, 69, 102, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: var(--secondary);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .love-section {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 20px 60px rgba(139, 69, 102, 0.15);
+            border: 1px solid rgba(212, 165, 165, 0.3);
+            animation: fadeInUp 1.5s ease-out;
+            animation-fill-mode: both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .love-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 186, 0.1) 0%, transparent 70%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .love-section:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .love-section:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .love-section:nth-child(4) {
+            animation-delay: 0.9s;
+        }
+
+        .love-section:nth-child(5) {
+            animation-delay: 1.2s;
+        }
+
+        .love-section:nth-child(6) {
+            animation-delay: 1.5s;
+        }
+
+        .love-section:nth-child(7) {
+            animation-delay: 1.8s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        h2::after {
+            content: '♡';
+            margin-left: 15px;
+            color: var(--secondary);
+            font-size: 0.8em;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .final-message {
+            background: linear-gradient(135deg, var(--primary) 0%, #a05a7a 100%);
+            color: var(--light);
+            padding: 80px 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin-top: 60px;
+            box-shadow: 0 25px 70px rgba(139, 69, 102, 0.3);
+            animation: fadeInUp 1.5s ease-out 1.5s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-message::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .final-message p {
+            font-size: 1.8rem;
+            line-height: 1.9;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--light);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 600;
+            color: var(--gold);
+            margin-top: 40px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s ease-in-out infinite;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Decorative elements */
+        .decorative-line {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            margin: 40px auto;
+        }
+
+        .reveal-button {
+            background: linear-gradient(135deg, var(--gold) 0%, #c9a86a 100%);
+            color: var(--dark);
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.4rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .reveal-button:active {
+            transform: translateY(-1px);
+        }
+
+        .image-container {
+            margin-top: 50px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.8s ease;
+            max-width: 100%;
+            display: none;
+        }
+
+        .image-container.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .image-container img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(139, 69, 102, 0.3);
+            border: 5px solid var(--light);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            .love-section {
+                padding: 40px 30px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1.1rem;
+            }
+
+            .final-message p {
+                font-size: 1.4rem;
+            }
+
+            .signature {
+                font-size: 2.2rem;
+            }
+
+            .reveal-button {
+                padding: 15px 35px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hearts-background" id="heartsContainer"></div>
+    
+    <div class="container">
+        <header>
+            <h1>Para Ti</h1>
+            <p class="subtitle">Las razones por las que te amo</p>
+        </header>
+
+        <div class="love-section">
+            <h2>Tu Sonrisa</h2>
+            <p>Tu sonrisa ilumina mis días más oscuros. Cada vez que sonríes, siento como si el mundo se detuviera solo para admirar esa belleza que irradias. Es mi refugio, mi motivación y la razón por la que cada mañana tiene sentido.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Tu Forma de Ser</h2>
+            <p>Me encanta cómo eres tú misma sin pretensiones. Tu autenticidad, tu bondad, la manera en que te preocupas por los demás... Eres única en este mundo, y estoy eternamente agradecido de tenerte en mi vida. Tu esencia es lo más hermoso que he conocido.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Tus Detalles</h2>
+            <p>Los pequeños detalles que tienes conmigo nunca pasan desapercibidos. Cada gesto de cariño, cada palabra dulce, cada momento que compartes conmigo es un tesoro que guardo en mi corazón. Esos detalles hacen que me enamore de ti una y otra vez.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Tu Mirada</h2>
+            <p>Cuando me miras, siento que puedo ver el universo entero en tus ojos. Esa mirada que me dice todo sin necesidad de palabras, que me hace sentir amado, protegido y completo. Tus ojos son mi hogar.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Tus Ojos</h2>
+            <p>Tus ojos son las ventanas de tu alma hermosa. Me pierdo en ellos cada vez que te veo, admirando su profundidad y su brillo único. En tus ojos encuentro paz, amor y toda la felicidad del mundo. Son tan expresivos que puedo leer en ellos cada emoción, cada pensamiento, y me enamoran más cada día.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Tu Apoyo</h2>
+            <p>Siempre has estado ahí para mí, en los buenos y malos momentos. Tu apoyo incondicional me da fuerzas para seguir adelante. Contigo a mi lado, siento que puedo conquistar el mundo. Eres mi compañera, mi mejor amiga, mi todo.</p>
+        </div>
+
+        <div class="love-section">
+            <h2>Y Mucho Más...</h2>
+            <p>Estas no son todas las razones por las que te amo, mi amor. Si intentara describir cada detalle que me enamora de ti, cada gesto que hace latir mi corazón, cada palabra tuya que se queda grabada en mi mente, necesitaría una eternidad completa. Podría escribir miles de páginas sobre la forma en que ríes, sobre cómo tu voz calma mis tormentas, sobre la manera en que haces que los días grises se vuelvan brillantes con solo estar presente. Cada segundo contigo descubro algo nuevo que amar, un nuevo motivo para agradecerle al universo por haberte puesto en mi camino. Eres infinita en belleza, en bondad, en amor, y mi vida entera no sería suficiente para expresarte todo lo que significas para mí. Simplemente eres perfecta, y te amo más allá de lo que las palabras pueden expresar.</p>
+        </div>
+
+        <div class="decorative-line"></div>
+
+        <div class="final-message">
+            <p>Cómo olvidar el día en que te conocí y mi mundo empezó a girar en torno a ti</p>
+            <div class="signature">TE AMO MI NIÑA HERMOSA</div>
+            
+            <button class="reveal-button" onclick="revealImage()">💝 Ver Sorpresa 💝</button>
+            
+            <div class="image-container" id="imageContainer">
+                <img src="imagenes/mijack.jpg" alt="Nuestra foto especial">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts animation
+        const heartsContainer = document.getElementById('heartsContainer');
+        const heartSymbols = ['♥', '♡', '❤'];
+        
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            heartsContainer.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 20000);
+        }
+        
+        // Create initial hearts
+        for (let i = 0; i < 15; i++) {
+            setTimeout(createHeart, i * 1000);
+        }
+        
+        // Continuously create hearts
+        setInterval(createHeart, 2000);
+
+        // Function to reveal the image
+        function revealImage() {
+            const imageContainer = document.getElementById('imageContainer');
+            imageContainer.classList.add('show');
+            
+            // Scroll smoothly to the image
+            setTimeout(() => {
+                imageContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+    </script>
+</body>
+</html>
